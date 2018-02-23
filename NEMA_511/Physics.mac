@@ -1,0 +1,88 @@
+#
+#   P H Y S I C S
+#
+#/gate/physics/addPhysicsList emlivermore_polar
+
+# I N I T I A L I Z A T I O N
+/gate/physics/addProcess Compton
+/gate/physics/processes/Compton/setModel LivermoreModel
+#/gate/physics/addProcess PhotoElectric
+#/gate/physics/processes/PhotoElectric/setModel LivermoreModel
+#/gate/physics/addProcess eMultipleScattering e-
+
+#/gate/physics/addProcess Decay
+#/gate/physics/addProcess RadioactiveDecay
+#/gate/physics/addAtomDeexcitation
+#/gate/physics/addProcess PositronAnnihilation
+
+
+#/gate/physics/addProcess IonIonisation
+#/gate/physics/processes/IonIonisation/setStepFunction GenericIon 0.1 0.02 mm
+
+
+#/gate/physics/processList Enabled
+#/gate/physics/processList Initialized
+
+
+#/gate/physics/displayCuts
+#/gate/physics/print output/physics.txt
+
+#
+#       P H Y S I C S
+#
+#/gate/physics/addProcess PhotoElectric
+#/gate/physics/processes/PhotoElectric/setModel LivermoreModel
+#/gate/physics/processes/PhotoElectric/setAugerElectron true
+
+#/gate/physics/addProcess Compton
+#/gate/physics/processes/Compton/setModel StandardModel
+
+#/gate/physics/addProcess RayleighScattering
+#/gate/physics/processes/RayleighScattering/setModel PenelopeModel
+
+#/gate/physics/addProcess ElectronIonisation
+#/gate/physics/processes/ElectronIonisation/setModel PenelopeModel e-
+#/gate/physics/processes/ElectronIonisation/setModel PenelopeModel e+
+
+#/gate/physics/addProcess Bremsstrahlung
+#/gate/physics/processes/Bremsstrahlung/setModel PenelopeModel e-
+#/gate/physics/processes/Bremsstrahlung/setModel PenelopeModel e+
+
+#/gate/physics/addProcess PositronAnnihilation
+
+#/gate/physics/addProcess GammaConversion
+#/gate/physics/processes/GammaConversion/setModel PenelopeModel
+
+#/gate/physics/addProcess RadioactiveDecay
+#/gate/physics/addAtomDeexcitation
+#/gate/physics/addProcess OpticalWLS
+
+#/gate/physics/addProcess IonIonisation
+#/gate/physics/processes/IonIonisation/setStepFunction GenericIon 0.1 0.02 mm
+
+#/gate/physics/addProcess eMultipleScattering e+
+#/gate/physics/addProcess eMultipleScattering e-
+#/gate/physics/processes/eMultipleScattering/setGeometricalStepLimiterType e- distanceToBoundary
+#/gate/physics/processes/eMultipleScattering/setGeometricalStepLimiterType e+ distanceToBoundary
+
+
+/gate/physics/processList Enabled
+/gate/physics/processList Initialized
+
+#
+#       C U T S
+#
+/gate/physics/Electron/SetCutInRegion   crystal  10 cm
+#/gate/physics/Electron/SetCutInRegion phantom 0.001 mm
+
+
+
+#/gate/physics/processes/PhotoElectric/setDeltaRayCut 	1 keV
+#/gate/physics/processes/PhotoElectric/setXRayCut 		1 keV
+
+# not for Gamma_Sphere !!
+#/gate/physics/Gamma/SetCutInRegion      SPECThead 0.1 cm
+#/gate/physics/Electron/SetCutInRegion   SPECThead 1.0 cm
+
+/gate/physics/displayCuts
+

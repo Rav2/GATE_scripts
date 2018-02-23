@@ -1,0 +1,72 @@
+#=====================================================
+# VISUALISATION
+#=====================================================
+
+/vis/disable
+#/vis/enable
+#/control/execute Visualisation.mac
+
+#=====================================================
+# VERBOSITY
+#=====================================================
+
+# TODO
+
+#=====================================================
+# GEOMETRY
+#=====================================================
+
+/control/execute Geometry_384_strips_L50.mac
+#/control/execute Geometry_384_strips_Clinder_sys.mac
+#=====================================================
+#  P H A N T O M
+#=====================================================
+
+# in geometry
+
+#=====================================================
+# PHYSICS
+#=====================================================
+
+/control/execute Physics.mac
+
+#=====================================================
+# INITIALISATION
+#=====================================================
+
+#/run/numberOfThreads 2
+/gate/run/initialize
+
+#=====================================================
+#  P A R T I C L E   S O U R C E
+#=====================================================
+
+/control/execute Source_Point_Gamma.mac
+
+#=====================================================
+#  D A T A   O U T P U T   
+#=====================================================
+
+/control/execute Output.mac
+
+#=====================================================
+#   R A N D O M
+#=====================================================
+
+#/gate/random/setEngineName SprngMLFG
+/gate/random/setEngineName MersenneTwister
+#/gate/random/setEngineSeed 123456789
+/gate/random/setEngineSeed auto
+#/gate/random/verbose 1
+
+#=====================================================
+#   M E A S U R E M E N T   S E T T I N G S   
+#=====================================================
+
+#/gate/cluster/setTimeSplitHalflife 100 s
+
+/gate/application/setTotalNumberOfPrimaries 2000000
+/gate/application/setTimeSlice   100 s
+/gate/application/setTimeStart   0 s
+/gate/application/setTimeStop    100 s
+/gate/application/startDAQ

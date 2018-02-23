@@ -1,0 +1,62 @@
+#=====================================================
+# doub source
+# single source
+#=====================================================
+
+#/gate/source/verbose 2
+#/tracking/verbose 1
+
+/gate/source/addSource doub gps
+
+/gate/source/doub/gps/type Volume
+/gate/source/doub/gps/shape Cylinder
+/gate/source/doub/gps/radius 25.5 mm
+/gate/source/doub/gps/halfz 90 mm 
+
+#/gate/source/doub/gps/type Point
+/gate/source/doub/setType backtoback
+/gate/source/doub/gps/pos/centre 0 0 0  mm
+#/gate/source/doub/setActivity 100000 Bq
+/gate/source/doub/gps/particle gamma
+/gate/source/doub/gps/ene/mono 511. keV
+/gate/source/doub/gps/angtype iso
+
+#/gate/source/addSource single gps
+
+#/gate/source/single/gps/type Point 
+#/gate/source/single/gps/pos/centre 0 0 0 mm
+#/gate/source/single/setActivity 1000 Bq
+#/gate/source/single/gps/particle gamma
+#/gate/source/single/gps/ene/mono 1157. keV
+#/gate/source/single/gps/angtype iso
+
+#/gate/gps/source/single/multiplevertex true
+
+
+
+
+
+#/gate/source/addSource sc
+#/gate/source/sc/gps/pos/centre 0 0 0 mm
+#/gate/source/sc/gps/particle ion 
+#/gate/source/sc/gps/ion 21 44 0 0
+
+#/gate/source/sc/gps/angtype iso 
+
+#/gate/source/sc/gps/type Point
+#/gate/source/sc/gps/type Volume 
+#/gate/source/sc/gps/shape Sphere 
+#/gate/source/sc/gps/radius 1. mm 
+#/gate/source/sc/gps/halfz 1. mm 
+
+#/gate/source/sc/setForcedUnstableFlag true
+#/gate/source/sc/useDefaultHalfLife  
+#/gate/source/sc/gps/energytype Mono 
+#/gate/source/sc/gps/monoenergy 0. keV
+#/gate/source/sc/setActivity 5000. Bq
+
+#/gate/source/sc/setForcedHalfLife 30 s
+
+#/particle/createAllIon
+
+/gate/source/list
